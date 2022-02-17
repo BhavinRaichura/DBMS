@@ -23,7 +23,7 @@ if __name__=="__main__":
 
     for i in range(len(dict_data['DAYS'])):
       
-        # table BEDS have 4 collumns HOSPITAL_ID, DISEASE, DAYS_BED_AVAILIBILITY and one collomn for patient id which is set to autoincreament mood
+        # Table BUD has 4 columns HOSPITAL_ID, DISEASE, DAYS_BED_AVAILIBILITY and another column PATIENT ID which is set to autoincrement mood
         
         db_query= f'''INSERT INTO BEDS(
             HOSPITAL_ID, DISEASE, DAYS_BED_AVAILIBILITY
