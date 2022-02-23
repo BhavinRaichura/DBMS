@@ -11,7 +11,7 @@ CREATE TABLE BEDS(
     DAYS_BED_AVAILIBILITY INTEGER
                  );
 
-INSERT INTO BEDS VALUES(21002,10001,fever,2),(21006,10002,stroke,2);
+INSERT INTO BEDS VALUES(21002,10001,'fever',2),(21006,10002,'stroke',2);
 
 # Records were inserted from excel to BEDS
 # https://docs.google.com/spreadsheets/d/18mcakEtf8PICwVpuExcfL6W6Ic5EVStZfoPGW1gRRzA/edit?usp=sharing
@@ -28,7 +28,10 @@ CREATE TABLE PATIENT(
     AREA_PIN_CODE INTEGER
                     );
  
- INSERT INTO PATIENT VALUES(1,Pranjal,A+,Y,102),(2,shiva,B-,N,102);
+ INSERT INTO PATIENT VALUES(1,'Pranjal','A+','Y',102),(2,'shiva','B-','N',102);
+ 
+ 
+SELECT * FROM BEDS INNER JOIN PATIENT;
  
  # Records were inserted from excel to PATIENT
  # https://docs.google.com/spreadsheets/d/1VPw1Lb-eq7CnUFpvjMRzkVhJ2iKL6dN3b1kBhSt2p58/edit?usp=sharing
