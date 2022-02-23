@@ -12,7 +12,7 @@ CREATE TABLE BEDS(
                  );
                  
 # Records were inserted from excel to BEDS
-# https://docs.google.com/spreadsheets/d/18mcakEtf8PICwVpuExcfL6W6Ic5EVStZfoPGW1gRRzA/edit#gid=0
+# https://docs.google.com/spreadsheets/d/18mcakEtf8PICwVpuExcfL6W6Ic5EVStZfoPGW1gRRzA/edit?usp=sharing
 
 SELECT *FROM BEDS;
 
@@ -25,10 +25,9 @@ CREATE TABLE PATIENT(
                     );
                     
  # Records were inserted from excel to PATIENT
- # https://docs.google.com/spreadsheets/d/1VPw1Lb-eq7CnUFpvjMRzkVhJ2iKL6dN3b1kBhSt2p58/edit#gid=0
+ # https://docs.google.com/spreadsheets/d/1VPw1Lb-eq7CnUFpvjMRzkVhJ2iKL6dN3b1kBhSt2p58/edit?usp=sharing
 
 SELECT *FROM PATIENT;
-
 
 
 
