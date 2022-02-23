@@ -30,9 +30,6 @@ CREATE TABLE PATIENT(
  
  INSERT INTO PATIENT VALUES(1,'Pranjal','A+','Y',102),(2,'shiva','B-','N',102);
  
- 
-SELECT * FROM BEDS INNER JOIN PATIENT;
- 
  # Records were inserted from excel to PATIENT
  # https://docs.google.com/spreadsheets/d/1VPw1Lb-eq7CnUFpvjMRzkVhJ2iKL6dN3b1kBhSt2p58/edit?usp=sharing
  # 
