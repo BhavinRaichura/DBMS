@@ -87,12 +87,19 @@ FROM
          SUM(COUNT(PATIENT_ID)) OVER() AS TOTAL_PATIENT
          FROM
               BEDS
-                WHERE DISEASE ='accident'
-                   OR DISEASE='fever'
-                   OR DISEASE='typhoid'
-                   OR DISEASE ='low blood pressure'
+                WHERE DISEASE 
+                   IN ('tonsilitis','malaria','food poisoning','fever','typhoid')
     GROUP BY DISEASE
     ) AS l
 JOIN ( SELECT @PERCENTAGE_OF_DISEASE:=0 ) r ;
 
 -- #################################################################################################
+-- PERCENTAGE OF DISEASES USING WITHOUT USING VARIABLE
+
+SELECT DISEASE,
+      100*COUNT(PATIENT_ID)/(SUM(COUNT(PATIENT_ID)) OVER()) AS 'PATIENT(%)',
+       SUM(COUNT(PATIENT_ID)) OVER(ORDER BY DISEASE) AS SUM
+FROM BEDS
+WHERE DISEASE 
+       IN('tonsilitis','malaria','food poisoning','fever','typhoid')
+GROUP BY DISEASE;
