@@ -27,7 +27,7 @@ GROUP BY DISEASE,
          HOSPITAL_ID;
 
 -- #################################################################################################
--- DISEASE VS CUMULATIVE SUM 
+-- DISEASE VS CUMULATIVE SUM OF DISEASE USING VARIABLE
 
 SELECT
        l.DISEASE,
@@ -43,6 +43,19 @@ FROM
     GROUP BY DISEASE
     ) AS l
 JOIN ( SELECT @running_total:=0 ) r ;
+
+
+-- #################################################################################################
+-- DISEASE VS CUMULATIVE SUM OF DISEASE WITHOUT USING VARIABLE
+
+SELECT
+       DISEASE,
+       SUM(COUNT(DISEASE))
+           OVER (ORDER BY DISEASE)
+           AS RUNNING_TOTAL
+FROM BEDS
+GROUP BY
+         DISEASE;
 
 -- #################################################################################################
 -- SUM OF PATIENTS VS DISEASES
