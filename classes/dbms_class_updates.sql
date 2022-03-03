@@ -68,10 +68,25 @@ SELECT DISEASE FROM BEDS GROUP BY DISEASE;
 
 SELECT COUNT(HOSPITAL_ID), SUM(TOTAL) FROM BEDS GROUP BY DISEASE;
 
+-- UNION
 SELECT DISEASE, COUNT(HOSPITAL_ID) AS count FROM BEDS GROUP BY DISEASE UNION ALL SELECT 'SUM' DISEASE, COUNT(HOSPITAL_ID) FROM BEDS;
 
 SELECT DISEASE, COUNT(HOSPITAL_ID) AS count FROM BEDS GROUP BY DISEASE UNION ALL SELECT 'SUM' DISEASE, COUNT(HOSPITAL_ID) FROM BEDS WHERE DISEASE IN(tonsilitis,malaria);
 
+-- 3 march
 
+-- diseease with max count
+select
+       t.DISEASE,
+       t.CNT
+   from
+     (SELECT
+             DISEASE,
+             COUNT(DISEASE) AS CNT, 
+             max(count(DISEASE)) over () as max_cnt 
+     from BEDS 
+     group by DISEASE) AS t
+   WHERE 
+      t.CNT=t.max_cnt ;
 
 
