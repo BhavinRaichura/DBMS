@@ -78,7 +78,7 @@ SELECT DISEASE, COUNT(HOSPITAL_ID) AS count FROM BEDS GROUP BY DISEASE UNION ALL
 -- 3 march
 -- MAX()
 
--- Disease which has maximum number of patients 
+-- Find the disease that has the maximum number of patients
 
 SELECT
        t.DISEASE,
