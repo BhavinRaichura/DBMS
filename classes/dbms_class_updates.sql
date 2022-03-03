@@ -99,13 +99,14 @@ SELECT
 SELECT
        t.DISEASE,
        t.CNT
-   FROM
-     (SELECT
+   FROM (
+     SELECT
              DISEASE,
              COUNT(DISEASE) AS CNT, 
              MAX(COUNT(DISEASE)) OVER () AS MAX_CNT 
      FROM BEDS 
-     GROUP BY DISEASE) AS t
+     GROUP BY DISEASE
+   ) AS t
    WHERE 
       t.CNT=t.MAX_CNT;
 
