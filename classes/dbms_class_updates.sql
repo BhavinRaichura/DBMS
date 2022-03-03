@@ -45,6 +45,7 @@ SELECT * FROM BEDS INNER JOIN PATIENT;
 
 
 -- 25 FEB
+-- # JOIN
 
 UPDATE PATIENT SET S_NO = S_NO+10000;
 
@@ -54,14 +55,15 @@ SELECT * FROM BEDS RIGHT JOIN PATIENT ON BEDS.PATIENT_ID = PATIENT.S_NO;
 
 SELECT * FROM PATIENT RIGHT JOIN BEDS ON PATIENT.S_NO = BEDS.PATIENT_ID ;
 
--- create new table using the output of join of two tables
+-- create new table using the output of JOIN of two tables
+
 CREATE TABLE BEDS_AND_PATIENT AS SELECT * FROM PATIENT RIGHT JOIN BEDS ON PATIENT.S_NO = BEDS.PATIENT_ID ;
 
 SELECT * FROM BEDS_AND_PATIENT;
 
 
 -- 26 feb
-
+-- # SUM() | COUNT() | GROUP BY | ORDER BY
 SELECT * FROM BEDS GROUP BY DISEASE;
 
 SELECT DISEASE FROM BEDS GROUP BY DISEASE;
@@ -74,19 +76,21 @@ SELECT DISEASE, COUNT(HOSPITAL_ID) AS count FROM BEDS GROUP BY DISEASE UNION ALL
 SELECT DISEASE, COUNT(HOSPITAL_ID) AS count FROM BEDS GROUP BY DISEASE UNION ALL SELECT 'SUM' DISEASE, COUNT(HOSPITAL_ID) FROM BEDS WHERE DISEASE IN(tonsilitis,malaria);
 
 -- 3 march
+-- MAX()
 
--- diseease with max count
-select
+-- Disease which has maximum number of patients 
+
+SELECT
        t.DISEASE,
        t.CNT
-   from
+   FROM
      (SELECT
              DISEASE,
              COUNT(DISEASE) AS CNT, 
-             max(count(DISEASE)) over () as max_cnt 
-     from BEDS 
-     group by DISEASE) AS t
+             MAX(COUNT(DISEASE)) OVER () AS MAX_CNT 
+     FROM BEDS 
+     GROUP BY DISEASE) AS t
    WHERE 
-      t.CNT=t.max_cnt ;
+      t.CNT=t.MAX_CNT;
 
 
