@@ -184,7 +184,7 @@ where name
 You may print the results in any order,
 but must exclude duplicates from your answer. */
 
-SELECT DISTINCT NAME, PATIENT_ID
+SELECT DISTINCT NAME
 FROM BEDS_AND_PATIENT
 WHERE NOT( PATIENT_ID%2 = 1);
       
