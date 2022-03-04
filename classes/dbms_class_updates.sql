@@ -116,13 +116,17 @@ SELECT
 
 SELECT AVG(DAYS_BED_AVAILIBILITY) FROM BEDS;
 
+
 -- 4th feb
--- # DISTINCT() # NOT # LIKE # RLIKE # CHARACTER SEARCHING
+-- # DISTINCT() # NOT # LIKE # RLIKE # CHARACTER SEARCHING # EVEN ROWS # ODD ROWS
+
+-- RLIKE: This operator in MySQL is used to performs a pattern match of a string expression against a pattern.
+-- DISTINCT: It is used to return only distinct (different) values.
 
 /* Query the list of Patient names from Beds and patient that start with vowels.
  Your result cannot contain duplicates. */
 
-SELECT DISTINCT(Name)
+SELECT DISTINCT(NAME)
 FROM BEDS_AND_PATIENT
 WHERE NAME LIKE 'A%'
    OR NAME LIKE 'E%'
@@ -154,9 +158,9 @@ WHERE NAME
       NOT RLIKE '^[aeiouAEIOU].*$';
 
 /* Query the list of Patient names from Beds and patient that do not have second or thirdalphabet as vowels.
- Your result cannot contain duplicates. 
+ Your result cannot contain duplicates. */
  -- 1st method: for second char '_A%' and for third char '__A%' and so on (ADD _ FOR EACH CHARACTER )
- -- 2nd method: for second char '^.[aeiouAEIOU].*$' and for third char '^..[aeiouAEIOU].*$' and so on (ADD . FOR EACH CHARACTER IN BETWEEN ^ AND [] ) */
+ -- 2nd method: for second char '^.[aeiouAEIOU].*$' and for third char '^..[aeiouAEIOU].*$' and so on (ADD . FOR EACH CHARACTER IN BETWEEN ^ AND [] ) 
 
 -- 1st method 
 
@@ -175,6 +179,14 @@ Select DISTINCT NAME
 from BEDS_AND_PATIENT
 where name
       not RLIKE  '^..[aeiouAEIOU].*$';
+      
+/* Query a list of Patient names from BEDS_AND_PATIENT table with even ID numbers only. 
+You may print the results in any order,
+but must exclude duplicates from your answer. */
+
+SELECT DISTINCT NAME, PATIENT_ID
+FROM BEDS_AND_PATIENT
+WHERE NOT( PATIENT_ID%2 = 1);
       
    
       
