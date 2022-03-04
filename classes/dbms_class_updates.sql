@@ -115,3 +115,66 @@ SELECT
 -- # AVG()
 
 SELECT AVG(DAYS_BED_AVAILIBILITY) FROM BEDS;
+
+-- 4th feb
+-- # DISTINCT() # NOT # LIKE # RLIKE # CHARACTER SEARCHING
+
+/* Query the list of Patient names from Beds and patient that start with vowels.
+ Your result cannot contain duplicates. */
+
+SELECT DISTINCT(Name)
+FROM BEDS_AND_PATIENT
+WHERE NAME LIKE 'A%'
+   OR NAME LIKE 'E%'
+   OR NAME LIKE 'I%'
+   OR NAME LIKE 'O%'
+   OR NAME LIKE 'U%'
+ORDER BY NAME ASC;
+
+
+/* Query the list of Patient names from Beds and patient that do not start with vowels.
+ Your result cannot contain duplicates. */
+
+-- 1st method
+
+SELECT DISTINCT(NAME)
+FROM BEDS_AND_PATIENT
+WHERE Name not LIKE 'A%'
+    AND NAME NOT LIKE 'E%'
+    AND NAME NOT LIKE 'I%'
+    AND NAME NOT LIKE 'O%'
+    AND NAME NOT LIKE 'U%'
+ORDER BY NAME ASC;
+
+-- 2nd method
+
+SELECT DISTINCT NAME
+FROM BEDS_AND_PATIENT
+WHERE NAME
+      NOT RLIKE '^[aeiouAEIOU].*$';
+
+/* Query the list of Patient names from Beds and patient that do not have second or thirdalphabet as vowels.
+ Your result cannot contain duplicates. 
+ -- 1st method: for second char '_A%' and for third char '__A%' and so on (ADD _ FOR EACH CHARACTER )
+ -- 2nd method: for second char '^.[aeiouAEIOU].*$' and for third char '^..[aeiouAEIOU].*$' and so on (ADD . FOR EACH CHARACTER IN BETWEEN ^ AND [] ) */
+
+-- 1st method 
+
+SELECT DISTINCT(Name)
+FROM BEDS_AND_PATIENT
+WHERE NAME LIKE '_A%'
+   OR NAME LIKE '_E%'
+   OR NAME LIKE '_I%'
+   OR NAME LIKE '_O%'
+   OR NAME LIKE '_U%'
+ORDER BY NAME ASC;
+
+-- 2nd method 
+
+Select DISTINCT NAME
+from BEDS_AND_PATIENT
+where name
+      not RLIKE  '^..[aeiouAEIOU].*$';
+      
+   
+      
