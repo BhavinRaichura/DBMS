@@ -121,7 +121,7 @@ SELECT AVG(DAYS_BED_AVAILIBILITY) FROM BEDS;
 -- # DISTINCT(UNIQUE) # NOT # LIKE # RLIKE # CHARACTER SEARCHING # EVEN ROWS # ODD ROWS
 
 -- RLIKE: This operator in MySQL is used to performs a pattern match of a string expression against a pattern.
--- DISTINCT(UNIQUE): It is used to return only distinct (different) values.
+-- DISTINCT(): It is used to return only distinct (different) values. SELECT DISTINCT or SELECT DISTINCT(PATIENT_ID)
 
 /* Query the list of Patient names from Beds and patient that start with vowels.
  Your result cannot contain duplicates. */
@@ -187,6 +187,16 @@ but must exclude duplicates from your answer. */
 SELECT DISTINCT NAME
 FROM BEDS_AND_PATIENT
 WHERE NOT( PATIENT_ID%2 = 1);
-      
-   
+
+SELECT NAME, PATIENT_ID
+FROM BEDS_AND_PATIENT
+WHERE NOT( PATIENT_ID%2 = 1) GROUP BY NAME;
+
+-- DISTINCT will returns output with unique "col1 VS col2" from "SELECT DISTINCT col1, col2"
+
+SELECT DISTINCT NAME, HOSPITAL_ID -- SELECT DISTINCT NAME, PATINT_ID 
+FROM BEDS_AND_PATIENT
+WHERE NOT( PATIENT_ID%2 = 1);
+
+
       
