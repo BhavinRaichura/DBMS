@@ -64,6 +64,7 @@ SELECT * FROM BEDS_AND_PATIENT;
 
 -- 26 feb
 -- # SUM() | COUNT() | GROUP BY | ORDER BY
+
 SELECT * FROM BEDS GROUP BY DISEASE;
 
 SELECT DISEASE FROM BEDS GROUP BY DISEASE;
@@ -92,7 +93,7 @@ SELECT
       DISEASE IN('tonsilitis','malaria');
 
 -- 3 march
--- MAX()
+-- # MAX()
 
 -- Find the disease that has the maximum number of patients
 
@@ -111,3 +112,6 @@ SELECT
       t.CNT=t.MAX_CNT;
 
 
+-- # AVG()
+
+SELECT AVG(DAYS_BED_AVAILIBILITY) FROM BEDS;
