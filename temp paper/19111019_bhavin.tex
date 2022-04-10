@@ -43,6 +43,8 @@ Because the developer must extract the data items from the code strings, this ra
 \item 
 \begin{enumerate}
 \item Introduction
+\item ORM vs Raw SQL
+\item
 \item Mapping Strategy Semantics
 \item Pros of ORM
 \item Cons of ORM
@@ -50,8 +52,27 @@ Because the developer must extract the data items from the code strings, this ra
 \item Reference 
 \end{enumerate}
 
-\section{Introduction}
-\item
+
+\section{Introduction: ORM}
+\item An object-relational mapper provides an object-oriented layer between relational databases and object-oriented programming languages(like C++, C, Python, JAVA) without having to write SQL queries. It standardizes interfaces reducing boilerplate and speeding development time.
+\item Object-oriented programming includes many states and codes in a format that is complex to understand and interpret. ORMs translate this data and create a structured map to help developers understand the underlying database structure. The mapping explains how objects are related to different tables. ORMs use this information to convert data between tables and generate the SQL code for a relational database to insert, update, create and delete data in response to changes the application makes to the data object. Once written, the ORM mapping will manage the application’s data needs and you will not need to write any more low-level code.
+\begin{figure}
+  \includegraphics[width=\linewidth]{./orm1.JPG}
+  \caption{ORM}
+  \label{fig:ORM}
+\end{figure}
+
+\section{ORM vs Raw SQL}
+Developers can use raw SQL code to write a direct interface between the application and the database. Most relational databases support SQL to build data interfaces and applications. It’s stable, and since SQL has been used since the 1970s, it’s well documented and supported. Programmers maintain a lot of control over their data interface with SQL. It requires a lot of work, but it is more flexible and detailed than an ORM abstraction.
+\subsection{Native Querying with SQL}
+\item Using raw SQL also has its drawbacks. For instance, the developer is responsible for the safety and security of the database code. SQL injection is a problem where user input can affect the data state causing issues with the application and data integrity. ORMs sanitizes the code, making it easier to avoid these problems.
+\subsection{SQL Query Builders}
+\item Query builders add a layer of abstraction over the raw SQL without masking all of the underlying details. The builders formalize querying patterns and add methods to or functions that add escape items for easier application integration. They add a templating layer to help developers understand the database structure within the same coding application. Template builders still require developers to understand the database structure, requiring them to know SQL.
+\begin{figure}
+  \includegraphics[width=\linewidth]{./orm2.JPG}
+  \caption{ORM vs Raw SQL}
+  \label{fig:ORM vs SQL}
+\end{figure}
 
 
 \section{Mapping Strategy Semantics}
